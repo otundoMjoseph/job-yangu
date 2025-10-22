@@ -36,9 +36,55 @@ const Header = () => {
                       }}>
                         Find Jobs  
                       </a>
+
+                      <a
+                          onClick={() => {
+                              navigate(
+                                  isAuthenticated && user?.role === "employer"
+                                      ? "employer-dashboard"
+                                      : "/login"
+                                  
+                              )
+                          }} className=''>
+                          For Employers
+                      </a>
                   </nav>
+
           </div>
-              </div>
+          </div>
+          
+         {/* Auth buttons */}
+<div className="">
+  {isAuthenticated ? (
+    <div className="">
+      <span className="">
+        Welcome, {user?.fullName}
+      </span>
+
+      <a
+        href={
+          user.role === "employee"
+            ? "/employee-dashboard"
+            : "/find-jobs"
+        }
+        className=""
+      >
+        Dashboard
+      </a>
+    </div>
+  ) : (
+    <>
+      <a href="/login" className="">
+        Login
+      </a>
+
+      <a href="/signup" className="">
+        Sign Up
+      </a>
+    </>
+  )}
+</div>
+
       </header>
   )
 }
