@@ -113,3 +113,4 @@ npm run build
 
 ## 6\. License
 
+MIT
